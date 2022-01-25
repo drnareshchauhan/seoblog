@@ -50,7 +50,7 @@ const Index = () => {
                   {APP_NAME}
                 </h1>
                 <p className="lead text-light">
-                  Random blogs from random dweebs
+                  I am the way farer and destination too..
                 </p>
                 <hr className="my-4"></hr>
                 {/* <p className="lead">

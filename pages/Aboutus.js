@@ -4,27 +4,27 @@ const Aboutus = () => {
   return (
     <Layout>
       <section>
-        <div class="container">
-          <h1 id="about" class="text-center text-capitalize pt-5">
+        <div className="container">
+          <h1 id="about" className="text-center text-capitalize pt-5">
             About Me
           </h1>
-          <hr class="w-25 mx-auto pt-5" />
-          <div class="row mb-5">
-            <div class="col-lg-6 col-md-6 col-12">
+          <hr className="w-25 mx-auto pt-5" />
+          <div className="row mb-5">
+            <div className="col-lg-6 col-md-6 col-12">
               <img
                 src="/static/images/front-page/me.jpg"
-                class="myImg"
+                className="myImg"
                 alt="me"
               />
             </div>
-            <div class="col-lg-6 col-md-6 col-12">
+            <div className="col-lg-6 col-md-6 col-12">
               <h1>Who am I ?</h1>
               <hr />
               <p>
                 I am working as assistant professor in the department of
                 community Medicine Govt medical college Surat
               </p>
-              <button class="btn bg-primary text-white">
+              <button className="btn bg-primary text-white">
                 want to know more..
               </button>
             </div>

@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
-const Aboutus = () => {
+
+const Aboutus = ({ text }) => {
+  text =
+    "I am working as assistant professor in the department of community Medicine Govt medical college SuratI want more condition that will render 'read more' only if the text.length is greated than 150 chars,I am working as assistant professor in the department of community Medicine Govt medical college SuratI want more condition that will render 'read more' only if the text.length is greated than 150 chars.I am working as assistant professor in the department of community Medicine Govt medical college SuratI want more condition that will render 'read more' only if the text.length is greated than 150 chars,I am working as assistant professor in the department of community Medicine Govt medical college SuratI want more condition that will render 'read more' only if the text.length is greated than 150 chars.I am working as assistant professor in the department of community Medicine Govt medical college SuratI want morecondition that will render 'read more' only if the text.length is greated than 150 chars,I am working as assistant professor in the department of community Medicine Govt medical college SuratI want more condition that will render 'read more' only if the text.length is greated than 150 chars.I am working as assistant professor in the department of community Medicine Govt medical college SuratI want more condition that will render 'read more' only if the text.length is greated than 150 chars,I am working as assistant professor in the department of community Medicine Govt medical college SuratI want morecondition that will render 'read more' only if the text.length is greated than 150 chars.I am working as assistant professor in the department of community Medicine Govt medical college SuratI want more condition that will render 'read more' only if the text.length is greated than 150 chars,I am working as assistant professor in the department of community Medicine Govt medical college SuratI want more condition that will render 'read more' only if the text.length is greated than 150 chars";
+  const [isReadMore, setIsReadMore] = useState(true);
+  const toggleReadMore = () => {
+    setIsReadMore(!isReadMore);
+  };
   return (
     <Layout>
       <section>
@@ -23,10 +30,19 @@ const Aboutus = () => {
               <p>
                 I am working as assistant professor in the department of
                 community Medicine Govt medical college Surat
+                {isReadMore ? text.slice(0, 150) : text}
+                // condition that will render 'read more' only if the
+                text.length is greated than 150 chars
+                {text.length > 150 && (
+                  <span
+                    onClick={toggleReadMore}
+                    className="text-primary"
+                    style={{ cursor: "pointer" }}
+                  >
+                    {isReadMore ? "...read more" : " ...show less"}
+                  </span>
+                )}
               </p>
-              <button className="btn bg-primary text-white">
-                want to know more..
-              </button>
             </div>
           </div>
         </div>

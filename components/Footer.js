@@ -86,7 +86,7 @@ const Footer = () => {
                     </div>
                     <div className="col-3 mx-auto">
                       <a
-                        href="https://www.instagram.com/"
+                        href="https://github.com/drnareshchauhan"
                         target="_blank"
                         rel="noreferrer"
                       >

@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-
+import { GA_TRACKING_ID } from "../lib/gtag";
 import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
 
@@ -9,20 +9,6 @@ class MyDocument extends Document {
   //     return { ...initialProps }
   //   } //use this if you wanna server render your pages,  we dont wanna server render
   //all the pages
-
-  setGoogleTags() {
-    if (!publicRuntimeConfig.PRODUCTION) {
-      return {
-        __html: `
-        window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-42XJ46V9WL');
-        `,
-      };
-    }
-  }
 
   render() {
     return (
@@ -50,11 +36,25 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
           />
-          <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-42XJ46V9WL"
-          ></script>
-          <script dangerouslySetInnerHTML={this.setGoogleTags()}></script>
+
+          {GA_TRACKING_ID ? (
+            <>
+              <script
+                async
+                src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+              />
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_TRACKING_ID}');
+              `,
+                }}
+              />
+            </>
+          ) : null}
           <link
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"

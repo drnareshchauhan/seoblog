@@ -121,14 +121,14 @@ const Blogs = ({
   return (
     <React.Fragment>
       {head()}
-      {console.log(router)}
+      {/* {console.log(router)} */}
       <Layout>
         <main>
           <div className="container-fluid">
             <header>
               <div className="col-md-12 pt-3">
                 <h1 className="display-4 font-weight-bold text-center">
-                  Blogs from Naresh
+                  Writing is fun indeed !
                 </h1>
               </div>
               <section>

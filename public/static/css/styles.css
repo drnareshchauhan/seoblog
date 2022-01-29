@@ -129,3 +129,7 @@ hr {
   border: 0;
   border-top: 1px solid rgb(181 173 173 / 10%);
 }
+#eye {
+  font-weight: lighter;
+  font-size: 1rem;
+}

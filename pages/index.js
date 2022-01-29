@@ -50,7 +50,7 @@ const Index = () => {
                   {APP_NAME}
                 </h1>
                 <p className="lead text-light">
-                  I am the wayfarer.. &nbsp; and destination too..
+                  I am the wayfarer.. &nbsp; and the destination too..
                 </p>
                 <hr className="my-4"></hr>
                 {/* <p className="lead">

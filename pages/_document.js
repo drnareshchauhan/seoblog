@@ -9,6 +9,18 @@ class MyDocument extends Document {
   //     return { ...initialProps }
   //   } //use this if you wanna server render your pages,  we dont wanna server render
   //all the pages
+  setGoogleTags() {
+    if (publicRuntimeConfig.PRODUCTION) {
+      return {
+        __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_TRACKING_ID}');
+              `,
+      };
+    }
+  }
 
   render() {
     return (
@@ -37,7 +49,7 @@ class MyDocument extends Document {
             href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
           />
 
-          {GA_TRACKING_ID ? (
+          {/* {GA_TRACKING_ID ? (
             <>
               <script
                 async
@@ -54,7 +66,12 @@ class MyDocument extends Document {
                 }}
               />
             </>
-          ) : null}
+          ) : null} */}
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
+          <script dangerouslySetInnerHTML={this.setGoogleTags()} />
           <link
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"

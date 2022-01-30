@@ -19,16 +19,7 @@ import DisqusThread from "../../components/DisqusThread";
 const SingleBlog = ({ blog, router, query }) => {
   //grab router query
   //JSON.stringify(router)
-  const { data } = useSWR(
-    `/api/page-views?slug=${encodeURIComponent(PostsDirectory + blog.slug)}`,
 
-    async (url) => {
-      const res = await fetch(url);
-      return res.json();
-    },
-    { revalidateOnFocus: false }
-  );
-  const views = data?.pageViews || 0;
   const [related, setRelated] = useState([]);
 
   const loadRelated = () => {
@@ -44,7 +35,18 @@ const SingleBlog = ({ blog, router, query }) => {
   useEffect(() => {
     loadRelated();
   }, [query]);
+  const { data } = useSWR(
+    `http://localhost:3000/api/page-views?slug=${encodeURIComponent(
+      PostsDirectory + blog.slug
+    )}`,
 
+    async (url) => {
+      const res = await fetch(url);
+      return res.json();
+    },
+    { revalidateOnFocus: false }
+  );
+  const views = data?.pageViews || 0;
   const head = () => (
     <Head>
       <title>

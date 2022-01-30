@@ -36,12 +36,17 @@ const SingleBlog = ({ blog, router, query }) => {
     loadRelated();
   }, [query]);
   const { data } = useSWR(
-    `https:drnareshchauhan.in/api/page-views?slug=${encodeURIComponent(
-      PostsDirectory + blog.slug
-    )}`,
+    `/api/page-views?slug=${encodeURIComponent(PostsDirectory + blog.slug)}`,
 
     async (url) => {
-      const res = await fetch(url);
+      const res = await fetch(url, {
+        method: "GET",
+        mode: "no-cors",
+        body: "param=" + paramVar,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       return res.json();
     },
     { revalidateOnFocus: false }

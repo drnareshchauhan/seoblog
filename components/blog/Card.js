@@ -7,7 +7,7 @@ import { API } from "../../config";
 
 const Card = ({ blog }) => {
   const { data } = useSWR(
-    `http://localhost:3000/api/page-views?slug=${encodeURIComponent(
+    `https:drnareshchauhan.in/api/page-views?slug=${encodeURIComponent(
       PostsDirectory + blog.slug
     )}`,
     async (url) => {

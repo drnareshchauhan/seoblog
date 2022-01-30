@@ -36,7 +36,7 @@ const SingleBlog = ({ blog, router, query }) => {
     loadRelated();
   }, [query]);
   const { data } = useSWR(
-    `http://localhost:3000/api/page-views?slug=${encodeURIComponent(
+    `https:drnareshchauhan.in/api/page-views?slug=${encodeURIComponent(
       PostsDirectory + blog.slug
     )}`,
 

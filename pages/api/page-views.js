@@ -4,6 +4,8 @@ const pageViewsAPI = async (req, res) => {
   const startDate = req.query.startDate || "2022-01-01";
   const slug = req.query.slug;
 
+  res.setHeader("Access-Control-Allow-Origin", slug);
+  res.setHeader("Access-Control-Allow-Methods", "GET");
   try {
     const auth = new google.auth.GoogleAuth({
       credentials: {

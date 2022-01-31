@@ -2,16 +2,15 @@ import Link from "next/link";
 import renderHTML from "react-render-html";
 import useSWR from "swr";
 import { PostsDirectory } from "../../lib/util";
+
 import moment from "moment"; //use for formatting the date
 import { API } from "../../config";
 
 const Card = ({ blog }) => {
   const { data } = useSWR(
-    `http://localhost:3000/api/page-views?slug=${encodeURIComponent(
-      PostsDirectory + blog.slug
-    )}`,
+    `/api/page-views?slug=${encodeURIComponent(PostsDirectory + blog.slug)}`,
     async (url) => {
-      const res = await fetch(url, { mode: "no-cors" });
+      const res = await fetch(url);
       return res.json();
     },
     { revalidateOnFocus: false }

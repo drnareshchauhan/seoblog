@@ -36,12 +36,10 @@ const SingleBlog = ({ blog, router, query }) => {
     loadRelated();
   }, [query]);
   const { data } = useSWR(
-    `http://localhost:3000/api/page-views?slug=${encodeURIComponent(
-      PostsDirectory + blog.slug
-    )}`,
+    `/api/page-views?slug=${encodeURIComponent(PostsDirectory + blog.slug)}`,
 
     async (url) => {
-      const res = await fetch(url, { mode: "no-cors" });
+      const res = await fetch(url);
       return res.json();
     },
     { revalidateOnFocus: false }

@@ -7,7 +7,9 @@ import { API } from "../../config";
 
 const Card = ({ blog }) => {
   const { data } = useSWR(
-    `/api/page-views?slug=${encodeURIComponent(PostsDirectory + blog.slug)}`,
+    `http://localhost:3000/api/page-views?slug=${encodeURIComponent(
+      PostsDirectory + blog.slug
+    )}`,
     async (url) => {
       const res = await fetch(url, { mode: "no-cors" });
       return res.json();

@@ -3,6 +3,7 @@ import NProgress from "nprogress";
 import { APP_NAME } from "../config";
 import Link from "next/link";
 import { signout, isAuth } from "../actions/auth";
+import Svg from "./Svg";
 import {
   Collapse,
   Navbar,
@@ -41,6 +42,11 @@ const Header = () => {
             {APP_NAME}
           </NavLink>
         </Link>
+        <React.Fragment>
+          <Link href="/">
+            <Svg className="svg" />
+          </Link>
+        </React.Fragment>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>

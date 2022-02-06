@@ -89,15 +89,15 @@ footer .fontawsome-style {
 }
 
 .svg {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
   transform: rotate(45deg);
+
   filter: invert(61%) sepia(16%) saturate(6172%) hue-rotate(186deg)
     brightness(91%) contrast(88%);
   cursor: pointer;
 }
-footer .fontawsome-style,
-svg:hover {
+footer .fontawsome-style:hover {
   transition: all 1s;
   animation: rotatefont 1s linear infinite alternate-reverse;
   color: #fff;
@@ -110,6 +110,20 @@ svg:hover {
     transform: scale(1.2);
   }
 }
+svg:hover {
+  transition: all 1s;
+  animation: rotatefont 1s linear infinite alternate-reverse;
+  filter: invert(18%) sepia(42%) saturate(6608%) hue-rotate(239deg)
+    brightness(57%) contrast(137%);
+}
+/* @keyframes rotatefont {
+  0% {
+    transform: scale(0.6);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+} */
 /* Footer section ends */
 
 h1,

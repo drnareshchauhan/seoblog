@@ -2,7 +2,6 @@ import Layout from "../components/Layout";
 import Link from "next/link";
 import { NavLink } from "reactstrap";
 import { APP_NAME } from "../config";
-import { urlObjectKeys } from "next/dist/next-server/lib/utils";
 
 const styles = {
   backgroundPosition: "center",

@@ -1,19 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
-import { pageview } from "../lib/gtag";
+
 import Head from "next/head";
 import "../public/static/css/styles.css";
 
-function MyApp({ Component, pageProps, router }) {
-  useEffect(() => {
-    const handleRouteChange = (url) => {
-      pageview(url, document.title);
-    };
-    router.events.on("routeChangeComplete", handleRouteChange);
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, []);
+function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>

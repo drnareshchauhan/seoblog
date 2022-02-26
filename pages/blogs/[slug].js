@@ -9,7 +9,6 @@ import { singleBlog, listRelated } from "../../actions/blog";
 import renderHTML from "react-render-html";
 import moment from "moment"; //use for formatting the date
 import SmallCard from "../../components/blog/SmallCard";
-import { PostsDirectory } from "../../lib/util";
 
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from "../../config";
 
@@ -35,16 +34,7 @@ const SingleBlog = ({ blog, router, query }) => {
   useEffect(() => {
     loadRelated();
   }, [query]);
-  const { data } = useSWR(
-    `/api/page-views?slug=${encodeURIComponent(PostsDirectory + blog.slug)}`,
 
-    async (url) => {
-      const res = await fetch(url);
-      return res.json();
-    },
-    { revalidateOnFocus: false }
-  );
-  const views = data?.pageViews || 0;
   const head = () => (
     <Head>
       <title>
@@ -134,10 +124,7 @@ const SingleBlog = ({ blog, router, query }) => {
                     <Link href={`/profile/${blog.postedBy.username}`}>
                       <a>{blog.postedBy.username}</a>
                     </Link>{" "}
-                    | Published {moment(blog.updatedAt).fromNow()}|&nbsp;
-                    <i id="eye" className="fa fa-eye" aria-hidden="true"></i>
-                    &nbsp;
-                    {views}
+                    | Published {moment(blog.updatedAt).fromNow()}
                   </p>
 
                   <div className="pb-3">

@@ -35,10 +35,7 @@ const Card = ({ blog }) => {
           <Link href={`/profile/${blog.postedBy.username}`}>
             <a>{blog.postedBy.username}</a>
           </Link>{" "}
-          | Published {moment(blog.updatedAt).fromNow()}|&nbsp;
-          <i id="eye" className="fa fa-eye" aria-hidden="true"></i>
-          &nbsp;
-          {views}
+          | Published {moment(blog.updatedAt).fromNow()}
         </p>
       </section>
       <section>

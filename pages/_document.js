@@ -37,7 +37,7 @@ class MyDocument extends Document {
             href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
           />
 
-          {G - C2H0WGBBSS ? (
+          {"G - C2H0WGBBSS " ? (
             <>
               <script
                 async

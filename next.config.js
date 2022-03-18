@@ -9,6 +9,5 @@ module.exports = {
     GOOGLE_CLIENT_ID:
       "59336272273-bvhr50g0f0monvrlqsn9mcdasbvbt47a.apps.googleusercontent.com",
     DISQUS_SHORTNAME: "naresh-5",
-    FB_APP_ID: "503067021478205",
   },
 };
